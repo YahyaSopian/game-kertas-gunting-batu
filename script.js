@@ -1,11 +1,21 @@
 function getComputerChoice() {
-  let randomNumber = Math.floor(Math.random() * 2);
+  const randomNumber = Math.floor(Math.random() * 2);
 
   if (randomNumber === 0) {
-    console.log("Gunting");
+    return "Rock";
   } else if (randomNumber === 1) {
-    console.log("Kertas");
+    return "Paper";
   } else {
-    console.log("Batu");
+    return "Scissor";
   }
 }
+
+function getHumanChoice() {
+  let choice = prompt("Please enter your choice (Rock, Paper, or Scissor:)");
+  choiceFix = choice.charAt(0).toUpperCase() + choice.slice(1).toLowerCase();
+  while (choiceFix !== "Rock" && choiceFix !== "Paper" && choiceFix !== "Scissor") {
+    choice = prompt("Choice unvalid. Please try again!");
+  }
+  return choiceFix;
+}
+console.log(getHumanChoice());
